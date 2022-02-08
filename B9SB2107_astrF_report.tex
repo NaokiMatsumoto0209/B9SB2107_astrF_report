@@ -1,0 +1,140 @@
+\RequirePackage{plautopatch}
+\documentclass[a4paper,papersize,uplatex,dvipdfmx,10pt]{jsarticle}
+
+%package類
+%%%%%%%%%%%%%%%%%%%%
+\usepackage[utf8]{inputenc} % エンコーディングが UTF8 であることを明示する。
+%文書内リンク
+% OTF フォントを使えるようにし、複数のウェイトも使用可能にする。
+% これがないと、Mac のヒラギノ環境で使われる角ゴが太すぎてみっともない。
+%\usepackage[deluxe]{otf}
+
+% OT1→T1に変更し、ウムラウトなどを PDF 出力で合成文字ではなくす
+\usepackage[T1]{fontenc}
+
+% uplatex の場合に必要な処理
+\usepackage[prefernoncjk]{pxcjkcat} % アクセントつきラテン文字を欧文扱いにする
+
+% Helvetica と Times を sf と rm のそれぞれで使う。
+% default だとバランスが悪いので、日本語に合わせて文字の大きさを調整する。
+\usepackage[scaled=1.05,helvratio=0.95]{newtxtext}
+
+% 色
+\usepackage[dvipdfmx]{color}
+
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+%\usepackage{hyperref} % 紙に印刷するときは青文字リンクは消す。
+
+\usepackage{pxjahyper}%文字化け防止
+
+\usepackage{array,amsmath,amssymb,bm,cases}%数式でよく使うもの
+
+\usepackage[dvipdfmx]{graphicx}%画像使用
+
+\usepackage{url}
+
+\usepackage{natbib}
+
+\usepackage{ascmac}%itembox環境
+
+\usepackage{enumerate}%enumerate環境
+
+% bibliography を目次に追加
+\usepackage[nottoc,notlot,notlof]{tocbibind}
+
+%\usepackage{mathtools}%dcases環境
+
+\usepackage[nooneline]{subfigure}
+\subfiguretopcaptrue
+
+%\usepackage{comment}
+
+\allowdisplaybreaks[4]
+
+\usepackage{listings,jvlisting} %日本語のコメントアウトをする場合jvlisting（もしくはjlisting）が必要
+%ここからソースコードの表示に関する設定
+\lstset{
+  basicstyle={\ttfamily},
+  identifierstyle={\small},
+  commentstyle={\smallitshape},
+  keywordstyle={\small\bfseries},
+  ndkeywordstyle={\small},
+  stringstyle={\small\ttfamily},
+  frame={tb},
+  breaklines=true,
+  columns=[l]{fullflexible},
+  numbers=left,
+  xrightmargin=0zw,
+  xleftmargin=3zw,
+  numberstyle={\scriptsize},
+  stepnumber=1,
+  numbersep=1zw,
+  lineskip=-0.5ex
+}
+%ここまでソースコードの表示に関する設定
+
+%newcommand類
+%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bs}{\symbol{92}} %backslash
+
+\newcommand{\red}[1]{\textcolor{red}{#1}} %文字色赤
+
+\newcommand{\blue}[1]{\textcolor{blue}{#1}} %文字色青
+
+\newcommand{\green}[1]{\textcolor{green}{#1}} %文字色緑
+
+\newcommand{\ured}[1]{\textcolor{red}{\underline{\textcolor{black}{#1}}}} %下線赤
+
+\newcommand{\ugreen}[1]{\textcolor{green}{\underline{\textcolor{black}{#1}}}} %下線緑
+
+\newcommand{\ublue}[1]{\textcolor{blue}{\underline{\textcolor{black}{#1}}}} %下線青
+%%%%%%%%%%%%%%%%%%%%
+
+\title{天文学特選F\,レポート}
+\author{宇宙地球物理学科\,\,天文学コース\\B9SB2107\,\,松本尚輝}
+\date{\today}
+
+\begin{document}
+\maketitle
+\section{宇宙モデル}
+\subsection{スケール因子}
+密度パラメータが
+\begin{enumerate}[(a)]
+  \item $\Omega_{m,0}=0.3$、$\Omega_{\Lambda,0}=0.7$
+  \item $\Omega_{m,0}=0.3$、$\Omega_{\Lambda,0}=0.0$
+  \item $\Omega_{m,0}=1.0$、$\Omega_{\Lambda,0}=0.0$
+\end{enumerate}
+である場合の宇宙モデルについて、スケール因子$a(t)$と時間$t$の関係式を導き、それを図にプロットする（プロットの際は比較のため、現在時間を$t=0$ととる）。また、光度距離$d_{\mathrm{L}}$及び角径距離$d_{\mathrm{A}}$を赤方偏移$z$の関数としてプロットする。
+
+
+
+\subsection{Ia型超新星と加速膨張}
+Ia型超新星の観測から宇宙は現在、加速膨張しているものと考えられている。これは、
+
+\section{宇宙再電離}
+\subsection{銀河間ガス}
+
+
+\subsection{トムソン散乱の光学的厚み}
+
+\subsection{CMBの偏光観測}
+
+\section{密度ゆらぎの分散}
+
+\section{密度ゆらぎの進化}
+\subsection{共動座標系への変換}
+
+\subsection{ゆらぎの進化方程式}
+
+\subsection{Harrison-Zel'dovich spectrum}
+
+\section{初代星・初代銀河と巨大ブラックホール}
+\subsection{初代星と初代銀河の形成}
+
+\subsection{巨大ブラックホールの形成}
+
+
+%\renewcommand{\bibname}{参考文献}
+%\bibliographystyle{jecon}
+%\bibliography{thesis}
+\end{document}
