@@ -113,20 +113,123 @@ Ia型超新星の観測から宇宙は現在、加速膨張しているものと
 
 \section{宇宙再電離}
 \subsection{銀河間ガス}
-
+現在の銀河間ガスが電離していることは、
 
 \subsection{トムソン散乱の光学的厚み}
+再結合後、それまで中性だった銀河間ガスが、ある赤方偏移$z_{\mathrm{reion}}$で突然再電離したとして、銀河間ガスの数密度が$n=n_{0}(1+z)^{3}$としたときに、再電離によるトムソン散乱の光学的厚みが
+\begin{align}
+  \tau_{e} = \frac{2\mathrm{c}\sigma_{\mathrm{T}}n_{0}}{3\Omega_{m,0}H_{0}}\left( \left[ \Omega_{m,0}(1+z_{\mathrm{reion}})^{3}+\Omega_{\Lambda,0} \right]^{\frac{1}{2}}-1 \right)
+\end{align}
+と与えられることを示す。ただし、$\Omega_{m,0}+\Omega_{\Lambda,0}=1$の宇宙モデルを考え、$\sigma_{\mathrm{T}}$はトムソン散乱断面積である。
 
 \subsection{CMBの偏光観測}
+CMBの偏光観測から$\tau_{e}=0.06$程度と想定されているが、この時の$z_{\mathrm{reion}}$がどのような値となるか考える。
 
 \section{密度ゆらぎの分散}
+密度ゆらぎの$2$乗$\sigma^{2}(M)$が
+\begin{align}
+  \sigma^{2}(M) = \left< \left( \frac{\delta M}{M} \right)^{2} \right> = \int^{R^{-1}}_{0}\Delta^{2}(k)\,\mathrm{d}\ln{k}
+\end{align}
+となることを示す。ただし、
+\begin{align}
+  \Delta^{2}(k) = \frac{k^{3}}{2\pi^{2}}P(k)
+\end{align}
+で、$P(k)$は密度ゆらぎのパワースペクトルである。
 
 \section{密度ゆらぎの進化}
+物質優勢期の密度ゆらぎの進化について考える。
 \subsection{共動座標系への変換}
+自己重力流体の基礎方程式は
+\begin{align}
+  \text{(連続の式)}&:\frac{\partial \rho}{\partial t}+\bm{\nabla}\cdot\left( \rho \mathbf{v} \right)=0 \label{renzoku}\\
+  \text{(Euler方程式)}&:\frac{\partial \mathbf{v}}{\partial t}+\mathbf{v}\cdot\nabla\mathbf{v}=-\nabla \phi \label{euler}\\
+  \text{(Poisson方程式)}&:\nabla^{2}\phi = 4\pi\mathrm{G}\rho \label{poisson}
+\end{align}
+のように与えられる。
+
+これを物理座標$(t,\mathbf{r})$から共動座標$(t^{\prime},\mathbf{x})$に変換する。ただし、
+\begin{equation}
+  \mathbf{r} = a(t)\mathbf{x}
+\end{equation}
+\begin{equation}
+  \mathbf{v}=\dot{\mathbf{r}}=\dot{a}\mathbf{x}+a\dot{\mathbf{x}}=a\left( H\mathbf{x}+\mathbf{u} \right)
+\end{equation}
+\begin{equation}
+  H \equiv \frac{\dot{a}}{a},\mspace{10mu}\mathbf{u}\equiv\dot{\mathbf{x}}
+\end{equation}
+であり、実効的な重力ポテンシャル$\Phi$を
+\begin{equation}
+  \Phi \equiv \left( \phi + \frac{1}{2}a\ddot{a}x^{2} \right)
+\end{equation}
+とし、物質優勢期におけるフリードマン方程式
+\begin{align}
+  \frac{\ddot{a}}{a} = -\frac{4\pi\mathrm{G}}{3}\bar{\rho},\mspace{20mu}(\rho=\bar{\rho}(1+\delta))
+\end{align}
+を用いる。
+
+まず、座標変換に対して微分演算子がどのように変換されるかを確かめる。任意のスカラー量$Q$に対して、
+\begin{align}
+  \frac{\partial Q}{\partial t} &= \frac{\partial Q}{\partial t^{\prime}}\left.\frac{\partial t^{\prime}}{\partial t}\right|_{\mathbf{r}} + \frac{\partial Q}{\partial \mathbf{x}}\left.\frac{\partial \mathbf{x}}{\partial t}\right|_{\mathbf{r}}\notag\\
+  &= \frac{\partial Q}{\partial t^{\prime}} - H\mathbf{x}\cdot\frac{\partial Q}{\partial \mathbf{x}}
+\end{align}
+となることから、
+\begin{equation}
+  \frac{\partial}{\partial t} \to \frac{\partial}{\partial t^{\prime}} - H\mathbf{x}\cdot\bm{\nabla}_{\mathbf{x}}
+\end{equation}
+
+ただし$t^{\prime}=t$と
+\begin{align*}
+  \left.\frac{\partial \mathbf{x}}{\partial t}\right|_{\mathbf{r}} = \frac{\partial}{\partial t}\left( \frac{\mathbf{r}}{a} \right) &= \frac{\mathrm{d}a}{\mathrm{d}t}\frac{\partial}{\partial a}\left( \frac{\mathbf{r}}{a} \right)\\
+  &= \dot{a}\left( -\frac{\mathbf{r}}{a^{2}} \right) = -H\mathbf{x}
+\end{align*}
+を使った。
+
+同様に
+\begin{align}
+  \bm{\nabla}_{\mathbf{r}} = \frac{\partial Q}{\partial \mathbf{r}} &= \frac{\partial Q}{\partial t^{\prime}}\left.\frac{\partial t^{\prime}}{\partial \mathbf{r}} \right|_{\mathbf{r}} + \frac{\partial Q}{\partial \mathbf{x}}\left.\frac{\partial \mathbf{x}}{\partial \mathbf{r}}\right|_{\mathbf{r}}\notag\\
+  &= \frac{1}{a}\frac{\partial Q}{\partial \mathbf{x}}
+\end{align}
+となるので、
+\begin{equation}
+  \bm{\nabla}_{\mathbf{r}} \to \frac{1}{a}\bm{\nabla}_{\mathbf{x}}
+\end{equation}
+
+途中で
+\begin{align*}
+  \left.\frac{\partial t^{\prime}}{\partial \mathbf{r}} \right|_{\mathbf{r}} &= \frac{\partial t}{\partial \mathbf{r}} = 0\\
+  \left.\frac{\partial \mathbf{x}}{\partial \mathbf{r}}\right|_{\mathbf{r}} &= \frac{\partial}{\partial \mathbf{r}}\left( \frac{\mathbf{r}}{a} \right) = \frac{1}{a}
+\end{align*}
+を用いた。
+
+いま導出した式を使って式~\eqref{renzoku}、\eqref{euler}、\eqref{poisson}を変換する。
+\subsubsection{連続の式}
+\begin{align}
+  \frac{\partial \rho}{\partial t} &\to \frac{\partial \rho}{\partial t^{\prime}} - \left( H\mathbf{x}\cdot\bm{\nabla}_{\mathbf{x}}\right)\rho\\
+  \bm{\nabla}_{\mathbf{r}}\cdot\left( \rho \mathbf{v} \right) &\to \frac{1}{a}\bm{\nabla}_{\mathbf{x}}\cdot\left( \rho aH\mathbf{x} + \rho a\mathbf{u} \right)\notag\\
+  &= 3H\rho + \left( H\mathbf{x}\cdot\bm{\nabla}_{\mathbf{x}}\right)\rho + \bm{\nabla}_{\mathbf{x}} \cdot \left( \rho\mathbf{u} \right)
+\end{align}
+よって、
+\begin{equation}
+  \text{(連続の式)}: \frac{\partial \rho}{\partial t} + 3H\rho + \bm{\nabla}_{\mathbf{x}} \cdot \left( \rho\mathbf{u} \right) = 0
+\end{equation}
+
+\subsubsection{Euler方程式}
+\begin{align}
+  \frac{\partial \mathbf{v}}{\partial t} &\to \frac{\partial}{\partial t^{\prime}}\left( a\left( H\mathbf{x}+\mathbf{u} \right) \right) - \left( H\mathbf{x}\cdot\bm{\nabla}_{\mathbf{x}} \right)\left\{ a\left( H\mathbf{x}+\mathbf{u} \right) \right\}\\
+  \left( \mathbf{v}\cdot\bm{\nabla}_{\mathbf{r}} \right)\mathbf{v} &\to \left\{ \left( H\mathbf{x}+\mathbf{u} \right)\cdot\bm{\nabla}_{\mathbf{x}} \right\}\left( a\left( H\mathbf{x}+\mathbf{u} \right) \right)\\
+  &=
+\end{align}
+
 
 \subsection{ゆらぎの進化方程式}
+密度ゆらぎの進化方程式
+\begin{equation}
+  \frac{\partial^{2} \delta}{\partial t^{2}}+2H\frac{\partial \delta}{\partial t}-4\pi\mathrm{G}\bar{\rho}\delta=0
+\end{equation}
+を導出する。
 
 \subsection{Harrison-Zel'dovich spectrum}
+宇宙の極初期に存在した原始密度揺らぎがHarrison-Zel’dovichスペクトル$P(k) \propto k$で与えられるとき、 等密度時以後の揺らぎスペクトルがどのようになるかを考える。
 
 \section{初代星・初代銀河と巨大ブラックホール}
 \subsection{初代星と初代銀河の形成}
