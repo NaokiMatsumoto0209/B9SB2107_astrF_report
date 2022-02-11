@@ -113,7 +113,15 @@ Ia型超新星の観測から宇宙は現在、加速膨張しているものと
 
 \section{宇宙再電離}
 \subsection{銀河間ガス}
-現在の銀河間ガスが電離していることは、
+現在の銀河間ガスが電離していることは、遠方クェーサーなどの放射スペクトルから説明される。これらの放射は観測者の視線方向のガスに吸収されて観測される。例えば、dumped Ly$\alpha$は原始銀河の円盤による吸収を受けた際などに現れる減衰ウィングである。中性水素はライマン$\alpha$線を自由束縛遷移で吸収するので、銀河間ガスが中性であれば図~\ref{fig_lya}のように地球上($z=0$)で観測されるスペクトルに$121.6\,\mathrm{nm}$より長波長側で連続的な吸収を受けるはずである。
+
+$z<6$のクェーサーに対してはそのような連続吸収が存在しない一方で、$z>6$ではこのような連続的な吸収スペクトルが見られるクェーサーが確認されている。このため$z\sim6$で銀河間ガスが電離する、\textbf{宇宙再電離}が起きたと考えられている。
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.6\linewidth]{fig/lyalpha.pdf}
+	\caption{Ly$\alpha$線の銀河間ガスによる吸収 \label{fig_lya}}
+\end{figure}
 
 \subsection{トムソン散乱の光学的厚み}
 再結合後、それまで中性だった銀河間ガスが、ある赤方偏移$z_{\mathrm{reion}}$で突然再電離したとして、銀河間ガスの数密度が$n=n_{0}(1+z)^{3}$としたときに、再電離によるトムソン散乱の光学的厚みが
@@ -186,7 +194,7 @@ CMBの偏光観測から$\tau_{e}=0.06$程度と想定されているが、こ�
 
 同様に
 \begin{align}
-  \bm{\nabla}_{\mathbf{r}} = \frac{\partial Q}{\partial \mathbf{r}} &= \frac{\partial Q}{\partial t^{\prime}}\left.\frac{\partial t^{\prime}}{\partial \mathbf{r}} \right|_{\mathbf{r}} + \frac{\partial Q}{\partial \mathbf{x}}\left.\frac{\partial \mathbf{x}}{\partial \mathbf{r}}\right|_{\mathbf{r}}\notag\\
+  \bm{\nabla}_{\mathbf{r}}Q = \frac{\partial Q}{\partial \mathbf{r}} &= \frac{\partial Q}{\partial t^{\prime}}\left.\frac{\partial t^{\prime}}{\partial \mathbf{r}} \right|_{\mathbf{r}} + \frac{\partial Q}{\partial \mathbf{x}}\left.\frac{\partial \mathbf{x}}{\partial \mathbf{r}}\right|_{\mathbf{r}}\notag\\
   &= \frac{1}{a}\frac{\partial Q}{\partial \mathbf{x}}
 \end{align}
 となるので、
@@ -216,9 +224,22 @@ CMBの偏光観測から$\tau_{e}=0.06$程度と想定されているが、こ�
 \subsubsection{Euler方程式}
 \begin{align}
   \frac{\partial \mathbf{v}}{\partial t} &\to \frac{\partial}{\partial t^{\prime}}\left( a\left( H\mathbf{x}+\mathbf{u} \right) \right) - \left( H\mathbf{x}\cdot\bm{\nabla}_{\mathbf{x}} \right)\left\{ a\left( H\mathbf{x}+\mathbf{u} \right) \right\}\\
-  \left( \mathbf{v}\cdot\bm{\nabla}_{\mathbf{r}} \right)\mathbf{v} &\to \left\{ \left( H\mathbf{x}+\mathbf{u} \right)\cdot\bm{\nabla}_{\mathbf{x}} \right\}\left( a\left( H\mathbf{x}+\mathbf{u} \right) \right)\\
-  &=
+  \left( \mathbf{v}\cdot\bm{\nabla}_{\mathbf{r}} \right)\mathbf{v} &\to \left\{ \left( H\mathbf{x}+\mathbf{u} \right)\cdot\bm{\nabla}_{\mathbf{x}} \right\}\left( a\left( H\mathbf{x}+\mathbf{u} \right) \right)\notag\\
+  &=\left( H\mathbf{x}\cdot\bm{\nabla}_{\mathbf{x}} \right)\left\{ a\left( H\mathbf{x}+\mathbf{u} \right) \right\} + \left( \mathbf{u}\cdot\bm{\nabla}_{\mathbf{x}} \right)\left( aH\mathbf{x} \right) + \left( \mathbf{u}\cdot\bm{\nabla}_{\mathbf{x}} \right)a\mathbf{u}\\
+  \nabla_{\mathbf{r}}\phi &\to \frac{1}{a}\bm{\nabla}_{\mathbf{x}}\left( \Phi - \frac{1}{2}a\ddot{a}x^{2} \right)
 \end{align}
+まとめると、
+\begin{align*}
+  \frac{\partial}{\partial t^{\prime}}\left( a\left( H\mathbf{x}+\mathbf{u} \right) \right) + \left( \mathbf{u}\cdot\bm{\nabla}_{\mathbf{x}} \right)\left( aH\mathbf{x} \right) + \left( \mathbf{u}\cdot\bm{\nabla}_{\mathbf{x}} \right)(a\mathbf{u}) = -\frac{1}{a}\bm{\nabla}_{\mathbf{x}}\left( \Phi - \frac{1}{2}a\ddot{a}x^{2} \right)
+\end{align*}
+$H=\dot{a}/a$、$\partial \mathbf{x}/\partial t^{\prime}=0$を用いて、
+\begin{align*}
+  \text{(左辺)}: &\left(\ddot{a}\mathbf{x}+\dot{a}\mathbf{u}+a\frac{\partial \mathbf{u}}{\partial t^{\prime}}\right)+\dot{a}\left(\mathbf{u}\cdot\bm{\nabla}_{\mathbf{x}}\right)\mathbf{x}+a\left(\mathbf{u}\cdot\bm{\nabla}_{\mathbf{x}}\right)\mathbf{u}\\
+  &= \ddot{a}\mathbf{x} + \dot{a}\mathbf{u} + a\frac{\partial \mathbf{u}}{\partial t^{\prime}} + \dot{a}\mathbf{u} + a\left( \mathbf{u}\cdot\bm{\nabla}_{\mathbf{x}} \right)\mathbf{u}\\
+  \text{(右辺)}: &-\frac{1}{a}\nabla_{\mathbf{x}}\Phi + \frac{1}{2}\ddot{a}\nabla_{\mathbf{x}}x^{2}\\
+  &= -\frac{1}{a}\nabla_{\mathbf{x}}\Phi + \ddot{a}\mathbf{x}
+\end{align*}
+
 
 
 \subsection{ゆらぎの進化方程式}
